@@ -1,0 +1,165 @@
+[gd_scene load_steps=18 format=3 uid="uid://0u572fqxi6dq"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_1rojv"]
+[ext_resource type="PackedScene" uid="uid://d0q6x43346vnm" path="res://winPillar.tscn" id="2_4f4ig"]
+[ext_resource type="PackedScene" uid="uid://didswuurag06v" path="res://wall.tscn" id="2_slnso"]
+[ext_resource type="PackedScene" uid="uid://o3sv8jy7eixp" path="res://player.tscn" id="3_2w663"]
+[ext_resource type="Texture2D" uid="uid://ccbkwm62aiy7h" path="res://textures/stone tiles/stone_tiles_02_diff_2k.png" id="3_ql0bp"]
+[ext_resource type="Texture2D" uid="uid://bpp83o7wbeege" path="res://textures/stone tiles/stone_tiles_02_nor_gl_2k.png" id="4_om6j6"]
+[ext_resource type="Texture2D" uid="uid://dindxbb4sorxs" path="res://textures/stone tiles/stone_tiles_02_disp_2k.png" id="5_yp18j"]
+[ext_resource type="Texture2D" uid="uid://c73h1k00ifb6x" path="res://textures/rough concrete/rough_concrete_diff_2k.png" id="6_pei1q"]
+[ext_resource type="Texture2D" uid="uid://dfe1ro76k4wbl" path="res://textures/rough concrete/rough_concrete_rough_2k.png" id="7_lhoxd"]
+[ext_resource type="Texture2D" uid="uid://dwxhv8q454nyg" path="res://textures/rough concrete/rough_concrete_nor_gl_2k.png" id="8_nswfd"]
+[ext_resource type="Texture2D" uid="uid://dyxwnw7e3o72" path="res://textures/rough concrete/rough_concrete_disp_2k.png" id="9_d4mpy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t5fy6"]
+size = Vector3(128, 1, 128)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5jhpl"]
+albedo_texture = ExtResource("3_ql0bp")
+roughness_texture = ExtResource("5_yp18j")
+normal_enabled = true
+normal_texture = ExtResource("4_om6j6")
+uv1_scale = Vector3(32, 32, 32)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jeafv"]
+material = SubResource("StandardMaterial3D_5jhpl")
+size = Vector3(128, 1, 128)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ub35u"]
+albedo_texture = ExtResource("6_pei1q")
+metallic_specular = 0.0
+metallic_texture = ExtResource("7_lhoxd")
+roughness_texture = ExtResource("9_d4mpy")
+normal_enabled = true
+normal_texture = ExtResource("8_nswfd")
+uv1_scale = Vector3(8, 8, 8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s177s"]
+material = SubResource("StandardMaterial3D_ub35u")
+size = Vector3(128, 1, 128)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ndj7"]
+font_size = 30
+
+[node name="Main" type="Node"]
+script = ExtResource("1_1rojv")
+wall_scene = ExtResource("2_slnso")
+
+[node name="ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -0.5, 64)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
+shape = SubResource("BoxShape3D_t5fy6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground"]
+mesh = SubResource("BoxMesh_jeafv")
+
+[node name="ceiling" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 4.5, 64)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ceiling"]
+shape = SubResource("BoxShape3D_t5fy6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ceiling"]
+mesh = SubResource("BoxMesh_s177s")
+
+[node name="winPillar" parent="." instance=ExtResource("2_4f4ig")]
+
+[node name="player" parent="." instance=ExtResource("3_2w663")]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="time" type="Label" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -11.5
+offset_right = 91.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Your time: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sameMap" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.431
+anchor_top = 0.58
+anchor_right = 0.569
+anchor_bottom = 0.631
+offset_left = 38.488
+offset_top = 0.159973
+offset_right = -38.488
+offset_bottom = 0.111969
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../fovSlider")
+focus_neighbor_bottom = NodePath("../newMap")
+text = "play this map again"
+icon_alignment = 1
+
+[node name="newMap" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.45
+anchor_top = 0.684
+anchor_right = 0.55
+anchor_bottom = 0.731
+offset_left = -0.400024
+offset_top = -0.231995
+offset_right = 0.399963
+offset_bottom = 0.311981
+grow_horizontal = 2
+grow_vertical = 2
+text = "play new map"
+
+[node name="paused" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = 130.0
+offset_right = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_7ndj7")
+
+[node name="fovSlider" type="HSlider" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.431
+anchor_top = 0.501
+anchor_right = 0.569
+anchor_bottom = 0.501
+offset_left = 0.487976
+offset_top = -324.648
+offset_right = 0.511963
+offset_bottom = 324.352
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_bottom = NodePath("../sameMap")
+mouse_force_pass_scroll_events = false
+min_value = 50.0
+max_value = 150.0
+value = 100.0
+
+[connection signal="win" from="winPillar" to="." method="_on_win"]
+[connection signal="pressed" from="UI/sameMap" to="." method="_on_same_map_pressed"]
+[connection signal="pressed" from="UI/newMap" to="." method="_on_new_map_pressed"]

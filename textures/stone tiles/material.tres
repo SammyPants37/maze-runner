@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://day2o3lww8l5b"]
+
+[ext_resource type="Texture2D" uid="uid://ccbkwm62aiy7h" path="res://textures/stone tiles/stone_tiles_02_diff_2k.png" id="1_e8fsg"]
+[ext_resource type="Texture2D" uid="uid://bpp83o7wbeege" path="res://textures/stone tiles/stone_tiles_02_nor_gl_2k.png" id="2_8s50x"]
+[ext_resource type="Texture2D" uid="uid://dindxbb4sorxs" path="res://textures/stone tiles/stone_tiles_02_disp_2k.png" id="3_dt2go"]
+
+[resource]
+albedo_texture = ExtResource("1_e8fsg")
+roughness_texture = ExtResource("3_dt2go")
+normal_enabled = true
+normal_texture = ExtResource("2_8s50x")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true

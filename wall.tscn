@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://didswuurag06v"]
+
+[ext_resource type="Script" path="res://wall.gd" id="1_8h4c8"]
+[ext_resource type="Texture2D" uid="uid://c5ldq7lbjc1an" path="res://textures/stone wall/Steinwand_A1_Diffuse.jpg" id="2_4huh8"]
+[ext_resource type="Texture2D" uid="uid://c5cya3ld73jxr" path="res://textures/stone wall/Steinwand_A3_Normal.jpg" id="4_xd3ew"]
+[ext_resource type="Texture2D" uid="uid://bofr8a61b7b5h" path="res://textures/stone wall/Steinwand_A2_Displacement.jpg" id="5_qvgfj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ssrgi"]
+size = Vector3(4, 4, 4)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ymntc"]
+load_path = "res://.godot/imported/rock_wall_10_diff_4k.png-26e15fbdde11187410e322e09246eb3c.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v6f40"]
+albedo_texture = ExtResource("2_4huh8")
+metallic_specular = 0.0
+roughness_texture = ExtResource("5_qvgfj")
+emission_texture = SubResource("CompressedTexture2D_ymntc")
+normal_enabled = true
+normal_texture = ExtResource("4_xd3ew")
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_imsnf"]
+material = SubResource("StandardMaterial3D_v6f40")
+size = Vector3(4, 4, 4)
+
+[node name="wall" type="StaticBody3D"]
+script = ExtResource("1_8h4c8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ssrgi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_imsnf")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0, 0)
+visible = false
+light_color = Color(0.898039, 0.619608, 0, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0, 0)
+visible = false
+light_color = Color(0.898039, 0.619608, 0, 1)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.4)
+visible = false
+light_color = Color(0.898039, 0.619608, 0, 1)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.4)
+visible = false
+light_color = Color(0.898039, 0.619608, 0, 1)

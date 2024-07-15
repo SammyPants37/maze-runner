@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3 uid="uid://d0q6x43346vnm"]
+
+[ext_resource type="Script" path="res://winPillar.gd" id="1_r4qug"]
+[ext_resource type="Material" uid="uid://day2o3lww8l5b" path="res://textures/stone tiles/material.tres" id="2_wx106"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fif5y"]
+material = ExtResource("2_wx106")
+size = Vector3(4, 0.5, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xfeos"]
+material = ExtResource("2_wx106")
+size = Vector3(4, 0.5, 3.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4qrl2"]
+material = ExtResource("2_wx106")
+size = Vector3(4, 0.5, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kvrxs"]
+material = ExtResource("2_wx106")
+size = Vector3(4, 0.5, 2.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7kubs"]
+material = ExtResource("2_wx106")
+size = Vector3(4, 0.5, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cufr2"]
+material = ExtResource("2_wx106")
+size = Vector3(4, 0.5, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ws3lw"]
+material = ExtResource("2_wx106")
+size = Vector3(4, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a1cjv"]
+material = ExtResource("2_wx106")
+size = Vector3(4, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_euubm"]
+size = Vector3(4, 4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s1ai4"]
+size = Vector3(4, 4, 3.9)
+
+[node name="Node3D" type="StaticBody3D"]
+script = ExtResource("1_r4qug")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+mesh = SubResource("BoxMesh_fif5y")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.25)
+mesh = SubResource("BoxMesh_xfeos")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.5)
+mesh = SubResource("BoxMesh_4qrl2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.75)
+mesh = SubResource("BoxMesh_kvrxs")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1)
+mesh = SubResource("BoxMesh_7kubs")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 1.25)
+mesh = SubResource("BoxMesh_cufr2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 1.5)
+mesh = SubResource("BoxMesh_ws3lw")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 1.75)
+mesh = SubResource("BoxMesh_a1cjv")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="."]
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_euubm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_s1ai4")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
