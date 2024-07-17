@@ -1,0 +1,37 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1721176990
+export_presets.cfg::TextFile::-1::1721083338::0::1::::<><>::
+icon.svg::CompressedTexture2D::8093520610919984373::1721070258::1721070684::1::::<><>::
+main.gd::GDScript::-1::1721070258::0::1::::<>Node<>::
+main.tscn::PackedScene::1797888727832484578::1721086224::0::1::::<><>::res://main.gd<>uid://d0q6x43346vnm::::res://winPillar.tscn<>uid://didswuurag06v::::res://wall.tscn<>uid://o3sv8jy7eixp::::res://player.tscn<>uid://ccbkwm62aiy7h::::res://textures/stone tiles/stone_tiles_02_diff_2k.png<>uid://bpp83o7wbeege::::res://textures/stone tiles/stone_tiles_02_nor_gl_2k.png<>uid://dindxbb4sorxs::::res://textures/stone tiles/stone_tiles_02_disp_2k.png<>uid://c73h1k00ifb6x::::res://textures/rough concrete/rough_concrete_diff_2k.png<>uid://dfe1ro76k4wbl::::res://textures/rough concrete/rough_concrete_rough_2k.png<>uid://dwxhv8q454nyg::::res://textures/rough concrete/rough_concrete_nor_gl_2k.png<>uid://dyxwnw7e3o72::::res://textures/rough concrete/rough_concrete_disp_2k.png
+player.gd::GDScript::-1::1721070258::0::1::::<>CharacterBody3D<>::
+player.tscn::PackedScene::1041578543895100957::1721070258::0::1::::<><>::res://player.gd
+wall.gd::GDScript::-1::1721070259::0::1::::<>StaticBody3D<>::
+wall.tscn::PackedScene::7728099208917204839::1721070259::0::1::::<><>::res://wall.gd<>uid://c5ldq7lbjc1an::::res://textures/stone wall/Steinwand_A1_Diffuse.jpg<>uid://c5cya3ld73jxr::::res://textures/stone wall/Steinwand_A3_Normal.jpg<>uid://bofr8a61b7b5h::::res://textures/stone wall/Steinwand_A2_Displacement.jpg
+winPillar.gd::GDScript::-1::1721070259::0::1::::<>StaticBody3D<>::
+winPillar.tscn::PackedScene::8948938053874508770::1721070259::0::1::::<><>::res://winPillar.gd<>uid://day2o3lww8l5b::::res://textures/stone tiles/material.tres
+::res://textures/::1721070259
+::res://textures/rough concrete/::1721070690
+rough_concrete_arm_2k.png::CompressedTexture2D::7527560160183607143::1721070258::1721070690::1::::<><>::
+rough_concrete_diff_2k.png::CompressedTexture2D::7077158955508191553::1721070258::1721070690::1::::<><>::
+rough_concrete_disp_2k.png::CompressedTexture2D::261548093560713907::1721070258::1721070689::1::::<><>::
+rough_concrete_nor_gl_2k.png::CompressedTexture2D::8751361579427056978::1721070258::1721070689::1::::<><>::
+rough_concrete_rough_2k.png::CompressedTexture2D::7520073566777685613::1721070259::1721070689::1::::<><>::
+::res://textures/stone tiles/::1721070691
+material.tres::StandardMaterial3D::7210472965773042961::1721070259::0::1::::<><>::uid://ccbkwm62aiy7h::::res://textures/stone tiles/stone_tiles_02_diff_2k.png<>uid://bpp83o7wbeege::::res://textures/stone tiles/stone_tiles_02_nor_gl_2k.png<>uid://dindxbb4sorxs::::res://textures/stone tiles/stone_tiles_02_disp_2k.png
+stone_tiles_02_arm_2k.png::CompressedTexture2D::7640625391334897167::1721070259::1721070691::1::::<><>::
+stone_tiles_02_diff_2k.png::CompressedTexture2D::4915930569206137351::1721070259::1721070688::1::::<><>::
+stone_tiles_02_disp_2k.png::CompressedTexture2D::7747832990634857940::1721070259::1721070687::1::::<><>::
+stone_tiles_02_nor_gl_2k.png::CompressedTexture2D::3472273453326834896::1721070259::1721070687::1::::<><>::
+stone_tiles_02_rough_2k.png::CompressedTexture2D::5802187719412742184::1721070259::1721070688::1::::<><>::
+::res://textures/stone wall/::1721070686
+Steinwand_A1_Diffuse.jpg::CompressedTexture2D::6901427253300233205::1721070259::1721070685::1::::<><>::
+Steinwand_A2_Displacement.jpg::CompressedTexture2D::3380477552544598935::1721070259::1721070685::1::::<><>::
+Steinwand_A3_Normal.jpg::CompressedTexture2D::6884094127688521667::1721070259::1721070685::1::::<><>::
+Steinwand_A4_Specular.jpg::CompressedTexture2D::4389442568496864258::1721070259::1721070684::1::::<><>::
+Steinwand_A5_Bump.jpg::CompressedTexture2D::7617969707918721484::1721070259::1721070684::1::::<><>::
+Steinwand_B1_Diffuse.jpg::CompressedTexture2D::7171678642238247527::1721070259::1721070684::1::::<><>::
+Steinwand_B2_Displacement.jpg::CompressedTexture2D::1805398724666332734::1721070259::1721070684::1::::<><>::
+Steinwand_B3_Normal.jpg::CompressedTexture2D::932875932483064842::1721070259::1721070684::1::::<><>::
+Steinwand_B4_Specular.jpg::CompressedTexture2D::2178455446164821100::1721070259::1721070686::1::::<><>::
+Steinwand_B5_Bump.jpg::CompressedTexture2D::3203207193508004388::1721070259::1721070684::1::::<><>::
