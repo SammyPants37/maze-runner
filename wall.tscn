@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://didswuurag06v"]
+[gd_scene load_steps=12 format=3 uid="uid://didswuurag06v"]
 
 [ext_resource type="Script" path="res://wall.gd" id="1_8h4c8"]
 [ext_resource type="Texture2D" uid="uid://c5ldq7lbjc1an" path="res://textures/stone wall/Steinwand_A1_Diffuse.jpg" id="2_4huh8"]
 [ext_resource type="Texture2D" uid="uid://c5cya3ld73jxr" path="res://textures/stone wall/Steinwand_A3_Normal.jpg" id="4_xd3ew"]
 [ext_resource type="Texture2D" uid="uid://bofr8a61b7b5h" path="res://textures/stone wall/Steinwand_A2_Displacement.jpg" id="5_qvgfj"]
+[ext_resource type="ArrayMesh" uid="uid://daip6mrq2qx1g" path="res://blender models/lanternv2.obj" id="5_yu6fu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ssrgi"]
 size = Vector3(4, 4, 4)
@@ -24,6 +25,12 @@ uv1_scale = Vector3(3, 3, 3)
 material = SubResource("StandardMaterial3D_v6f40")
 size = Vector3(4, 4, 4)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_o0qqf"]
+size = Vector3(0.2, 0.4, 0.2)
+
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_3qmcy"]
+size = Vector3(4, 4, 4)
+
 [node name="wall" type="StaticBody3D"]
 script = ExtResource("1_8h4c8")
 
@@ -33,22 +40,57 @@ shape = SubResource("BoxShape3D_ssrgi")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_imsnf")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0, 0)
-visible = false
+[node name="lamp1" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.03, 0)
+shape = SubResource("BoxShape3D_o0qqf")
+
+[node name="lantern1" type="MeshInstance3D" parent="lamp1"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.03, 0)
+mesh = ExtResource("5_yu6fu")
+skeleton = NodePath("../..")
+
+[node name="light1" type="OmniLight3D" parent="lamp1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 light_color = Color(0.898039, 0.619608, 0, 1)
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0, 0)
-visible = false
+[node name="lamp2" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.2, 0.03, 0)
+shape = SubResource("BoxShape3D_o0qqf")
+
+[node name="lantern2" type="MeshInstance3D" parent="lamp2"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.03, 0)
+mesh = ExtResource("5_yu6fu")
+skeleton = NodePath("../..")
+
+[node name="light2" type="OmniLight3D" parent="lamp2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 light_color = Color(0.898039, 0.619608, 0, 1)
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.4)
-visible = false
+[node name="lamp3" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.03, 2.2)
+shape = SubResource("BoxShape3D_o0qqf")
+
+[node name="lantern3" type="MeshInstance3D" parent="lamp3"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.03, 0)
+mesh = ExtResource("5_yu6fu")
+skeleton = NodePath("../..")
+
+[node name="light3" type="OmniLight3D" parent="lamp3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 light_color = Color(0.898039, 0.619608, 0, 1)
 
-[node name="OmniLight3D4" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.4)
-visible = false
+[node name="lamp4" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.03, -2.2)
+shape = SubResource("BoxShape3D_o0qqf")
+
+[node name="lantern4" type="MeshInstance3D" parent="lamp4"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.03, 0)
+mesh = ExtResource("5_yu6fu")
+skeleton = NodePath("../..")
+
+[node name="light4" type="OmniLight3D" parent="lamp4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 light_color = Color(0.898039, 0.619608, 0, 1)
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+occluder = SubResource("BoxOccluder3D_3qmcy")

@@ -1,0 +1,6 @@
+res://main.tscn
+res://main.gd
+res://textures/stone tiles/material.tres
+res://winPillar.tscn
+res://wall.tscn
+res://player.tscn

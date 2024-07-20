@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://d0q6x43346vnm"]
 
-[ext_resource type="Script" path="res://winPillar.gd" id="1_r4qug"]
+[ext_resource type="Script" path="res://winPillar.gd" id="1_qu7y4"]
 [ext_resource type="Material" uid="uid://day2o3lww8l5b" path="res://textures/stone tiles/material.tres" id="2_wx106"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fif5y"]
@@ -42,7 +42,7 @@ size = Vector3(4, 4, 4)
 size = Vector3(4, 4, 3.9)
 
 [node name="Node3D" type="StaticBody3D"]
-script = ExtResource("1_r4qug")
+script = ExtResource("1_qu7y4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
